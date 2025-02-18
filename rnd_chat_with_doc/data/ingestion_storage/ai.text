@@ -1,0 +1,72 @@
+Who This Book Is For
+
+If you are a complete beginner to deep learning and machine
+learning, you are most welcome here. Our only expectation is that
+you already know how to code, preferably in Python.
+
+NO EXPERIENCE? NO PROBLEM!
+If you don’t have any experience coding, that’s OK too! The first three chapters
+have been explicitly written in a way that will allow executives, product
+managers, etc. to understand the most important things they’ll need to know
+about deep learning. When you see bits of code in the text, try to look them over
+to get an intuitive sense of what they’re doing. We’ll explain them line by line.
+The details of the syntax are not nearly as important as a high-level
+understanding of what’s going on.
+If you are already a confident deep learning practitioner, you will also
+find a lot here. In this book, we will be showing you how to achieve
+world-class results, including techniques from the latest research. As
+we will show, this doesn’t require advanced mathematical training or
+years of study. It just requires a bit of common sense and tenacity.
+
+What You Need to Know
+As we said before, the only prerequisite is that you know how to code
+(a year of experience is enough), preferably in Python, and that you
+have at least followed a high school math course. It doesn’t matter if
+you remember little of it right now; we will brush up on it as needed.
+Khan Academy has great free resources online that can help.
+
+What You Will Learn
+After reading this book, you will know the following:
+How to train models that achieve state-of-the-art results in
+Computer vision, including image classification
+(e.g., classifying pet photos by breed) and image
+localization and detection (e.g., finding the animals
+in an image)
+Natural language processing (NLP), including
+document classification (e.g., movie review
+sentiment analysis) and language modeling
+Tabular data (e.g., sales prediction) with categorical
+data, continuous data, and mixed data, including
+time series
+Collaborative filtering (e.g., movie
+recommendation)
+How to turn your models into web applications
+Why and how deep learning models work, and how to use
+that knowledge to improve the accuracy, speed, and
+reliability of your models
+The latest deep learning techniques that really matter in
+practice
+How to read a deep learning research paper
+How to implement deep learning algorithms from scratch
+How to think about the ethical implications of your work, to
+help ensure that you’re making the world a better place and
+that your work isn’t misused for harm
+See the table of contents for a complete list, but to give you a taste,
+here are some of the techniques covered (don’t worry if none of these
+words mean anything to you yet—you’ll learn them all soon):
+Affine functions and nonlinearities
+Parameters and activations
+Random initialization and transfer learning
+SGD, Momentum, Adam, and other optimizers
+Convolutions
+Batch normalization
+Dropout
+Data augmentation
+Weight decay
+ResNet and DenseNet architectures
+Image classification and regression
+Embeddings
+Recurrent neural networks (RNNs)
+Segmentation
+U-Net
+And much more!

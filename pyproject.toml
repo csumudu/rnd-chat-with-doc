@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "rnd-chat-with-doc"
+version = "0.1.0"
+description = ""
+authors = ["Sumudu Jayasinghe <csumudu@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+llama-index = "^0.10.64"
+ipython = "^8.26.0"
+llama-index-llms-openai = "^0.1.29"
+llama-index-embeddings-openai = "^0.1.11"
+streamlit = "^1.37.1"
+pypdf = "^4.3.1"
+docx2txt = "^0.8"
+llama-index-readers-web = "^0.1.23"
+wikipedia = "^1.4.0"
+llama-index-readers-wikipedia = "^0.1.4"
+pyyaml = "^6.0.2"
+pytest = "^8.3.2"
+tree-sitter = "^0.22.3"
+tree-sitter-languages = "^1.10.2"
+chromadb = "^0.5.5"
+llama-index-vector-stores-chroma = "^0.1.10"
+llama-index-vector-stores-elasticsearch = "^0.2.5"
+flask = "^3.0.3"
+flask-cors = "^4.0.1"
+beautifulsoup4 = "^4.12.3"
+jupyter-black = "^0.3.4"
+unstructured = { version = "^0.15.7", markers = "python_version < '3.13'" }
+python-magic-bin = "^0.4.14"
+nltk = "^3.9.1"
+langchain-nvidia-ai-endpoints = "^0.2.1"
+numpy = "1.26.4"
+torch = "^2.4.0"
+matplotlib = "^3.9.2"
+llama-index-embeddings-nvidia = "0.1.5"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.29.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
