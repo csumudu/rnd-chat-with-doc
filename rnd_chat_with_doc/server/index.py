@@ -38,6 +38,7 @@ from llama_index.core.node_parser import (
     SentenceWindowNodeParser,
     SemanticSplitterNodeParser,
     SentenceSplitter,
+    JSONNodeParser
 )
 from llama_index.readers.web import SimpleWebPageReader
 from llama_index.core.response.pprint_utils import pprint_response
@@ -46,6 +47,9 @@ from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.chat_engine import ContextChatEngine
 from llama_index.core.prompts import PromptTemplate
 from llama_index.core import ChatPromptTemplate
+from llama_index.core.schema import TextNode, Document
+import pandas as pd
+
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
@@ -120,6 +124,20 @@ def upload():
             )
             nodes = pharser.get_nodes_from_documents(documents=docs)
 
+        elif loader_type == "json":
+            dir = get_config().get("JSON_DATA")
+            df = pd.read_json(f"{dir}\out.json")
+            pharser = JSONNodeParser.from_defaults()
+
+            docs = [Document(
+                text=row.to_json(),
+                metadata={"original_json": row.to_json()}
+                ) for _, row in df.iterrows()]
+            nodes = pharser.get_nodes_from_documents(documents=docs)
+            for i, node in enumerate(nodes):
+                print(f"Node {i+1}: {node.text}")
+
+
         elif loader_type == "txt":
             docs = SimpleDirectoryReader(input_dir=dir).load_data()
             emb = get_embedding_model()
@@ -158,8 +176,9 @@ def upload():
 
 @app.route("/frmIndex", methods=["POST"])
 def fromIndex():
-    query_text = request.json["name"]
+    query_text = request.json["searchTerm"]
     index_name = request.json["indexName"]
+    top_k = request.json["top_k"]
 
     print("Query Text -->", query_text)
     print("Index -->", index_name)
@@ -167,13 +186,13 @@ def fromIndex():
     context, db = get_elastic_storage_context(index=index_name)
     index = VectorStoreIndex(nodes=[], storage_context=context)
 
-    retriever = VectorIndexRetriever(index=index, similarity_top_k=5)
+    retriever = VectorIndexRetriever(index=index, similarity_top_k=top_k)
     # Directly retrieve results from the index
     retrieved_nodes = retriever.retrieve(query_text)
 
     # Process the response into a format to return
     response_data = [
-        {"content": node.get_content(), "score": node.get_score()}
+        {"content": node.get_content(), "score": node.get_score(),"metadata":node.metadata}
         for node in retrieved_nodes
     ]
 

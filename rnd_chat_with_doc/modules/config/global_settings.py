@@ -11,6 +11,7 @@ paths = {
     "STORAGE_PATH": "data/ingestion_storage/",
     "INDEX_STORAGE": "data/index_storage",
     "LARGE_DOC_STORAGE": "data/large",
+    "JSON_DATA": "data/json",
 }
 QUIZ_SIZE = 5
 ITEMS_ON_SLIDE = 4
